@@ -1,5 +1,186 @@
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul li {
+  list-style: none;
+}
+
 /* Fonts */
+@font-face {
+  font-family: "Waukegan LDO";
+  src: url(./assets/fonts/WaukeganLdo-ax19.ttf);
+}
+
+@font-face {
+  font-family: "Waukegan LDO Bold";
+  src: url(./assets/fonts/WaukeganLdoBold-ZVeK.ttf);
+}
+
+@font-face {
+  font-family: "Waukegan LDO Bold Italic";
+  src: url(./assets/fonts/WaukeganLdoBoldOblique-3zrz.ttf);
+}
+
 /* Variables */
+:root {
+  --primary: #ffffff;
+  --secondary: #111111;
+}
+
 /* Base Styles */
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-family: "Waukegan LDO";
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.italic {
+  font-weight: 700;
+  font-style: italic;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+header .logo h1,
+header ul li {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 17px;
+}
+
+header ul li {
+  font-weight: 400;
+}
+
+main .availability {
+  display: flex;
+  gap: 1rem;
+}
+
+main .availability p {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 13px;
+}
+
+main .text p {
+  font-family: "Waukegan LDO Bold";
+  font-weight: 700;
+  text-align: center;
+}
+
+main .text .right {
+  text-align: right;
+}
+
+main .text .left {
+  text-align: left;
+}
+
 /* Mobile Styles */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+}
+
+header ul {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main .text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  margin: auto 0;
+}
+
+main .text p {
+  font-size: 3rem;
+  z-index: 1;
+}
+
+main .green img {
+  position: absolute;
+  top: -1rem;
+  right: -8rem;
+}
+
+main .pink img {
+  position: absolute;
+  bottom: -8rem;
+  left: -5rem;
+}
+
+/* Small Tablet Styles */
+@media screen and (min-width: 500px) {
+  main .text p {
+    font-size: 4rem;
+  }
+}
+
+/* large tablet and laptop Styles */
+@media screen and (min-width: 790px) {
+  .container {
+    grid-row-gap: 9rem;
+  }
+
+  header {
+    justify-self: stretch;
+    justify-content: space-between;
+  }
+
+  header > * {
+    flex-grow: 1;
+  }
+
+  header ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main .text p {
+    font-size: 6rem;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1200px) {
+  main {
+    gap: 9rem;
+  }
+
+  main .text p {
+    font-size: 9rem;
+  }
+
+  main .pink img {
+    bottom: 0rem;
+  }
+}
